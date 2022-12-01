@@ -24,13 +24,13 @@ vector<DayLog> MoodAnalysis::anomalies_detection(vector<DayLog> log){
     for(vector<DayLog>::iterator i = log.begin(); i < log.end(); i++){
             mood_list.push_back(i->get_mood());
     }
-    double mean = calculate_mean(mood_list);
+    /*double mean = calculate_mean(mood_list);
     for(int i = 0; i < log.size(); i++){
         if (*(mood_list.begin() + i) - mean >= 2 * calculateSD(mood_list)){
             DayLog temp = {(log.begin() + i)->get_day(), (log.begin() + i)->get_mood()};
             res.push_back(temp);
         }
-    }
+    }*/
     return res;
 }
 
