@@ -39,6 +39,26 @@ MainWindow::MainWindow(QWidget *parent)
 
     ui->frame_5->setLayout(qvbox);
 
+    //QDialog * dlg = new QDialog();
+    //dlg->setGeometry( 100, 100, 260, 260);
+
+    QScrollArea *scrollArea = new QScrollArea();
+    scrollArea->setVerticalScrollBarPolicy( Qt::ScrollBarAlwaysOn );
+    scrollArea->setWidgetResizable( true );
+    //scrollArea->setGeometry( 10, 10, 200, 200 );
+
+    QWidget *widget = new QWidget();
+    scrollArea->setWidget( widget );
+
+    QVBoxLayout *layout = new QVBoxLayout();
+    widget->setLayout( layout );
+
+    for (int i = 0; i < 10; i++)
+    {
+        QPushButton *button = new QPushButton( QString( "%1" ).arg( i ) );
+        layout->addWidget( button );
+    }
+
     //test for the DynamicGraph class
     EntryPerso *e1 = new EntryPerso(); //create an entry
     EntryPerso *e2 = new EntryPerso();
