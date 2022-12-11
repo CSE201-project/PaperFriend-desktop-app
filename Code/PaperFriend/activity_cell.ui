@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
  <class>activity_cell</class>
- <widget class="QWidget" name="activity_cell">
+ <widget class="QWidget" name="Activity_cell">
   <property name="geometry">
    <rect>
     <x>0</x>

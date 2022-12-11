@@ -43,7 +43,7 @@ class Main_window : public QMainWindow
     void on_push_button_clicked();
     void on_settings_button_clicked();
     void on_save_settings_clicked();
-    void on_activitie_button_clicked();
+    void on_activities_button_clicked();
     void on_filter_button_clicked();
     void on_new_entry_button_clicked();
     void on_save_entry_button_clicked();

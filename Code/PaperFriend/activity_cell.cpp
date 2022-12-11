@@ -2,7 +2,7 @@
 #include "ui_activity_cell.h"
 
 Activity_cell::Activity_cell(QWidget *parent)
-    : QWidget{parent}, ui{new Ui::Activity_cell}
+    : QWidget{parent}, ui(new Ui::Activity_cell)
 {
     ui->setupUi(this);
 }
@@ -15,9 +15,9 @@ Activity_cell::~Activity_cell() { delete ui; }
 //     be adding the text as an input.
 // }
 
-void Activity_cell::set_name(QString cellName)
+void Activity_cell::set_name(QString cell_name)
 {
-    ui->activity_name_CB->setText(cellName);
+    ui->activity_name_CB->set_text(cell_name);
 }
 
 void Activity_cell::on_delete_activity_button_clicked()
@@ -28,7 +28,7 @@ void Activity_cell::on_delete_activity_button_clicked()
                                      QMessageBox::Yes | QMessageBox::No)};
     if (reply == QMessageBox::Yes)
     {
-        emit closeThisCell(ActivitiesCellNumber);
+        emit close_cell(cell_number);
         this->close();
     }
 }

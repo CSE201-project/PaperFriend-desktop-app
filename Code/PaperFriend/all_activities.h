@@ -18,15 +18,14 @@ class All_activities : public QDialog
   public:
     explicit All_activities(QWidget *parent = nullptr);
     ~All_activities();
-    static int ActivitiesCellNumberTotal; // The total number of the activities.
-    static QVector<activity_cell *>
-        allCellPtr; // This vector saves all the data of the activity cell.
+    static int totol_cells; // avoid filler, avoid obvious comments.
+    static QVector<Activity_cell *> cells; // see above
     void add_previous_cells();
 
   private slots:
     void on_add_activity_button_clicked();
 
-    void add_new_cell(QString cellText = "", QString cellName = "Cell Name");
+    void add_new_cell(QString cell_text = "", QString cell_name = "Cell Name");
 
   public slots:
     // use camel case *or* snake case. Not both. Since we are all using snake,
