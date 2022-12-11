@@ -1,11 +1,13 @@
 #ifndef ALL_ACTIVITIES_H
 #define ALL_ACTIVITIES_H
 
+// use < > only for Qt or STL libraries.
+#include "activity_cell.h"
 #include <QDialog>
-#include<QVector>
-#include<activity_cell.h>>
+#include <QVector>
 
-namespace Ui {
+namespace Ui
+{
 class all_activities;
 }
 
@@ -13,22 +15,23 @@ class all_activities : public QDialog
 {
     Q_OBJECT
 
-public:
+  public:
     explicit all_activities(QWidget *parent = nullptr);
     ~all_activities();
     static int ActivitiesCellNumberTotal; // The total number of the activities.
-    static QVector<activity_cell *> allCellPtr; // This vector saves all the data of the activity cell.
+    static QVector<activity_cell *>
+        allCellPtr; // This vector saves all the data of the activity cell.
     void add_previous_cells();
 
-private slots:
+  private slots:
     void on_add_activity_button_clicked();
 
-    void addNewCell(QString cellText="", QString cellName="Cell Name");
+    void addNewCell(QString cellText = "", QString cellName = "Cell Name");
 
-public slots:
+  public slots:
     void closeCell(int);
 
-private:
+  private:
     Ui::all_activities *ui;
 };
 
