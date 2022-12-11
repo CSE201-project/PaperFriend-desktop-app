@@ -1,16 +1,18 @@
 #ifndef MAINWINDOW_H
 #define MAINWINDOW_H
 
-#include <QMainWindow>
+#include "all_habits.h"
+#include "cardclasses.h"
+#include "entryclasses.h"
+
 #include <QApplication>
-#include <QtCharts>
 #include <QChartView>
-#include<QLineSeries>
+#include <QLineSeries>
+#include <QMainWindow>
+#include <QtCharts>
 // Represents 1 set of bars in a bar chart
 #include <QtCharts/QBarSet>
-
-// Displays the color used to represent each
-// QBarSet
+// Displays the color used to represent each QBarSet
 #include <QtCharts/QLegend>
 // Adds categories to the charts axes
 #include <QtCharts/QBarCategoryAxis>
@@ -18,26 +20,26 @@
 #include <QtCharts/QLineSeries>
 // Used to change names on axis
 #include <QtCharts/QCategoryAxis>
-#include "all_habits.h"
-#include "entryclasses.h"
-#include "cardclasses.h"
 
 QT_BEGIN_NAMESPACE
-namespace Ui { class MainWindow; }
+namespace Ui
+{
+class MainWindow;
+}
 QT_END_NAMESPACE
 
 class MainWindow : public QMainWindow
 {
     Q_OBJECT
 
-public:
-    explicit MainWindow(QWidget *parent = 0);
+  public: // Do not use 0 in place of nullptr
+    explicit MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
     friend class TextEditor;
-    class TextEditor *textEditor;
-    void closeEvent (QCloseEvent *event);
+    TextEditor *textEditor;
+    void closeEvent(QCloseEvent *event);
 
-private slots:
+  private slots:
     void on_pushButton_clicked();
     void on_settingsButton_clicked();
     void on_save_settings_clicked();
@@ -46,17 +48,17 @@ private slots:
     void on_newEntryButton_clicked();
     void on_saveEntryButton_clicked();
 
-private:
+  private:
     void toggle_visibility(QWidget *component);
-    void display_entries(std::vector<EntryPerso*> entries, Ui::MainWindow *ui);
-    void display_graph(std::vector<EntryPerso*> entries, Ui::MainWindow *ui);
+    void display_entries(std::vector<EntryPerso *> entries, Ui::MainWindow *ui);
+    void display_graph(std::vector<EntryPerso *> entries, Ui::MainWindow *ui);
     Ui::MainWindow *ui;
     All_Habits *all_habits;
-    std::vector<EntryPerso*> entries;
-    EntryPerso entry;
+    // do not use pointers unless you have no other choice
+    std::vector<EntryPerso> entries;
     EntryCard *card;
-
-    std::vector<EntryPerso*> test(int n); //generate n random entries
 };
+
+// helps with debugging; to be replaced later
 
 #endif // MAINWINDOW_H

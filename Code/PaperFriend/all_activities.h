@@ -1,4 +1,4 @@
-#ifndef ALL_ACTIVITIES_H
+#ifndef ALL_ACTIVITIES_H // header guards are all caps
 #define ALL_ACTIVITIES_H
 
 // use < > only for Qt or STL libraries.
@@ -8,16 +8,16 @@
 
 namespace Ui
 {
-class all_activities;
+class All_activities; // class names start capitalised
 }
 
-class all_activities : public QDialog
+class All_activities : public QDialog
 {
     Q_OBJECT
 
   public:
-    explicit all_activities(QWidget *parent = nullptr);
-    ~all_activities();
+    explicit All_activities(QWidget *parent = nullptr);
+    ~All_activities();
     static int ActivitiesCellNumberTotal; // The total number of the activities.
     static QVector<activity_cell *>
         allCellPtr; // This vector saves all the data of the activity cell.
@@ -26,13 +26,15 @@ class all_activities : public QDialog
   private slots:
     void on_add_activity_button_clicked();
 
-    void addNewCell(QString cellText = "", QString cellName = "Cell Name");
+    void add_new_cell(QString cellText = "", QString cellName = "Cell Name");
 
   public slots:
-    void closeCell(int);
+    // use camel case *or* snake case. Not both. Since we are all using snake,
+    // it's better to stick to it
+    void close_cell(int);
 
   private:
-    Ui::all_activities *ui;
+    Ui::All_activities *ui;
 };
 
-#endif // ALL_ACTIVITIES_H
+#endif // All_activities_H

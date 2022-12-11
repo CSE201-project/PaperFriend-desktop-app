@@ -136,7 +136,7 @@ void generate_rgb(QString &red, QString &green, double m)
 }
 
 EntryCard::EntryCard(int border_radius, int width, int height, QString color,
-                     Entry *entry, bool readOnly)
+                     Entry &entry, bool readOnly)
     : Card(border_radius, width, height, color), entry(entry),
       readOnly(readOnly)
 {
