@@ -1,6 +1,6 @@
-#include "All_activities.h"
+#include "all_activities.h"
 #include "activity_cell.h"
-#include "ui_All_activities.h"
+#include "ui_all_activities.h"
 
 int All_activities::ActivitiesCellNumberTotal = 0;
 QVector<activity_cell *> All_activities::allCellPtr;

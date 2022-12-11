@@ -133,7 +133,7 @@ void MainWindow::on_pushButton_clicked()
 
 void MainWindow::on_activitie_button_clicked()
 {
-    all_activities *my_activities = new all_activities();
+    all_activities *my_activities{new all_activities()}; // uniform!
     my_activities->add_previous_cells();
     my_activities->setModal(true);
     my_activities->exec();
@@ -149,9 +149,11 @@ void MainWindow::on_settingsButton_clicked()
     findChild<QCheckBox *>("communications")
         ->setChecked(saved_communications());
     findChild<QCheckBox *>("screen_time")->setChecked(saved_screen_time());
-    auto settings = findChild<QWidget *>("settings_frame");
+
+    // uniform! GG for auto!
+    auto settings{findChild<QWidget *>("settings_frame")};
     toggle_visibility(settings);
-    auto chat_box = findChild<QWidget *>("scrollArea");
+    auto chat_box{findChild<QWidget *>("scrollArea")};
     toggle_visibility(chat_box);
 }
 
@@ -166,9 +168,9 @@ void MainWindow::on_save_settings_clicked()
     myfile << findChild<QCheckBox *>("communications")->isChecked() << "\n";
     myfile << findChild<QCheckBox *>("screen_time")->isChecked() << "\n";
     myfile.close();
-    auto settings = findChild<QWidget *>("settings_frame");
+    auto settings{findChild<QWidget *>("settings_frame")};
     settings->hide();
-    auto chat_box = findChild<QWidget *>("scrollArea");
+    auto chat_box{findChild<QWidget *>("scrollArea")}; // uniform!
     chat_box->show();
 }
 

@@ -1,36 +1,40 @@
 #ifndef ACTIVITY_CELL_H
 #define ACTIVITY_CELL_H
 
+#include <QMessageBox>
+#include <QString>
 #include <QWidget>
-#include<QString>
-#include<QMessageBox>
 
-namespace Ui {
-class activity_cell;
+namespace Ui
+{
+class Activity_cell;
 }
 
-class activity_cell : public QWidget
+class Activity_cell : public QWidget // class names start capitalised
 {
     Q_OBJECT
 
-public:
-    explicit activity_cell(QWidget *parent = nullptr);
-    ~activity_cell();
-    int ActivitiesCellNumber;
-    QString getTextData();
-    QString getCellName();
+  public:
+    explicit Activity_cell(QWidget *parent = nullptr);
+    ~Activity_cell();
+    int cell_number; // camelCase or snake_case, and avoid filler
+    QString get_text();
+    QString get_name(); // avoid filler
 
-    void setTextData(QString cellText);
-    void set_activity_cell_name(QString CellName);
+    void set_text(QString cell_text);
+    void set_name(QString cell_name);
 
-private:
-    Ui::activity_cell *ui;
+  private:
+    Ui::Activity_cell *ui;
 
-signals:
-    void closeThisCell(int); // one needs signals so that whenever the activity cell is closed one can invoke it.
+  signals:
+    // avoid filler words in name
+    void close_cell(int); // one needs signals so that whenever the activity
+                          // cell is closed one can invoke it.
 
-private slots:
+  private slots:
+    // what?
     void on_delete_activity_button_clicked();
 };
 
-#endif // ACTIVITY_CELL_H
+#endif // Activity_cell_H

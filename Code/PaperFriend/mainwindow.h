@@ -24,39 +24,40 @@
 QT_BEGIN_NAMESPACE
 namespace Ui
 {
-class MainWindow;
+class Main_window;
 }
 QT_END_NAMESPACE
 
-class MainWindow : public QMainWindow
+class Main_window : public QMainWindow
 {
     Q_OBJECT
 
   public: // Do not use 0 in place of nullptr
-    explicit MainWindow(QWidget *parent = nullptr);
-    ~MainWindow();
-    friend class TextEditor;
-    TextEditor *textEditor;
-    void closeEvent(QCloseEvent *event);
+    explicit Main_window(QWidget *parent = nullptr);
+    ~Main_window();
+    friend class Text_editor; // camelCase *or* snake_case
+    Text_editor *text_editor;
+    void close_event(QCloseEvent *event); // camelCase *or* snake_case!
 
   private slots:
-    void on_pushButton_clicked();
-    void on_settingsButton_clicked();
+    void on_push_button_clicked();
+    void on_settings_button_clicked();
     void on_save_settings_clicked();
     void on_activitie_button_clicked();
-    void on_filterButton_clicked();
-    void on_newEntryButton_clicked();
-    void on_saveEntryButton_clicked();
+    void on_filter_button_clicked();
+    void on_new_entry_button_clicked();
+    void on_save_entry_button_clicked();
 
   private:
     void toggle_visibility(QWidget *component);
-    void display_entries(std::vector<EntryPerso *> entries, Ui::MainWindow *ui);
-    void display_graph(std::vector<EntryPerso *> entries, Ui::MainWindow *ui);
-    Ui::MainWindow *ui;
-    All_Habits *all_habits;
+    void display_entries(std::vector<Entry_perso *> entries,
+                         Ui::Main_window *ui);
+    void display_graph(std::vector<Entry_perso *> entries, Ui::Main_window *ui);
+    Ui::Main_window *ui;
+    All_habits *all_habits;
     // do not use pointers unless you have no other choice
-    std::vector<EntryPerso> entries;
-    EntryCard *card;
+    std::vector<Entry_perso> entries;
+    Entry_card *card;
 };
 
 // helps with debugging; to be replaced later
